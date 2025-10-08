@@ -26,9 +26,22 @@ public class CalculetteTest extends TestCase {
         assertEquals(4.0, c.sommet());
     }
 
+    public void testSoustraire() {
+        c.empiler(7.0);
+        c.empiler(2.5);
+        double r = c.soustraire();
+        assertEquals(4.5, r);
+        assertEquals(4.5, c.sommet());
+    }
+
     public void testEvaluerSimple() {
         double r = c.evaluer("1 2 +");
         assertEquals(3.0, r);
+    }
+
+    public void testEvaluerSoustraction() {
+        double r = c.evaluer("7 2.5 -");
+        assertEquals(4.5, r);
     }
 
     public void testEvaluerExpressionInvalide() {
