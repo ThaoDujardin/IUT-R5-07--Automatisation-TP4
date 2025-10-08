@@ -31,6 +31,16 @@ public class Calculette
 		return r;
 	}
 
+	public double multiplier()
+	{
+		exiger(2);
+		double b = pile.pop();
+		double a = pile.pop();
+		double r = a * b;
+		pile.push(r);
+		return r;
+	}
+
 	public double sommet()
 	{
 		if (pile.isEmpty())
@@ -67,6 +77,10 @@ public class Calculette
 			else if (t.equals("-"))
 			{
 				soustraire();
+			}
+			else if (t.equals("*"))
+			{
+				multiplier();
 			}
 			else if (!t.isEmpty())
 			{

@@ -34,6 +34,14 @@ public class CalculetteTest extends TestCase {
         assertEquals(4.5, c.sommet());
     }
 
+    public void testMultiplier() {
+        c.empiler(2.0);
+        c.empiler(3.5);
+        double r = c.multiplier();
+        assertEquals(7.0, r);
+        assertEquals(7.0, c.sommet());
+    }
+
     public void testEvaluerSimple() {
         double r = c.evaluer("1 2 +");
         assertEquals(3.0, r);
@@ -42,6 +50,11 @@ public class CalculetteTest extends TestCase {
     public void testEvaluerSoustraction() {
         double r = c.evaluer("7 2.5 -");
         assertEquals(4.5, r);
+    }
+
+    public void testEvaluerMultiplication() {
+        double r = c.evaluer("2 3.5 *");
+        assertEquals(7.0, r);
     }
 
     public void testEvaluerExpressionInvalide() {
