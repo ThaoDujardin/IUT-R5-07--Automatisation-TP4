@@ -42,6 +42,25 @@ public class CalculetteTest extends TestCase {
         assertEquals(7.0, c.sommet());
     }
 
+    public void testDiviser() {
+        c.empiler(7.2);
+        c.empiler(3.6);
+        double r = c.diviser();
+        assertEquals(2.0, r);
+        assertEquals(2.0, c.sommet());
+    }
+
+    public void testDiviserParZero() {
+        c.empiler(1.0);
+        c.empiler(0.0);
+        try {
+            c.diviser();
+            fail("Devrait lever une ArithmeticException");
+        } catch (ArithmeticException expected) {
+            // ok
+        }
+    }
+
     public void testEvaluerSimple() {
         double r = c.evaluer("1 2 +");
         assertEquals(3.0, r);
@@ -55,6 +74,11 @@ public class CalculetteTest extends TestCase {
     public void testEvaluerMultiplication() {
         double r = c.evaluer("2 3.5 *");
         assertEquals(7.0, r);
+    }
+
+    public void testEvaluerDivision() {
+        double r = c.evaluer("7.2 3.6 /");
+        assertEquals(2.0, r);
     }
 
     public void testEvaluerExpressionInvalide() {

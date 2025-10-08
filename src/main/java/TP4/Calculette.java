@@ -41,6 +41,20 @@ public class Calculette
 		return r;
 	}
 
+	public double diviser()
+	{
+		exiger(2);
+		double b = pile.pop();
+		if (b == 0.0)
+		{
+			throw new ArithmeticException("Division par zéro");
+		}
+		double a = pile.pop();
+		double r = a / b;
+		pile.push(r);
+		return r;
+	}
+
 	public double sommet()
 	{
 		if (pile.isEmpty())
@@ -81,6 +95,10 @@ public class Calculette
 			else if (t.equals("*"))
 			{
 				multiplier();
+			}
+			else if (t.equals("/"))
+			{
+				diviser();
 			}
 			else if (!t.isEmpty())
 			{
